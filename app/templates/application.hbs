@@ -1,8 +1,19 @@
-{{#each model as |person|}}
+<h1>People</h1>
+{{#each model.people as |person|}}
   <p>{{person.name}}:</p>
   <ul>
     {{#each person.tasks as |task|}}
       <li>{{task.id}}: {{task.title}}</li>
+    {{/each}}
+  </ul>
+{{/each}}
+
+<h1>Tasks</h1>
+{{#each model.tasks as |task|}}
+  <p>{{task.title}}</p>
+  <ul>
+    {{#each task.assignees as |person|}}
+      <li>{{person.name}}</li>
     {{/each}}
   </ul>
 {{/each}}
